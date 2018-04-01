@@ -18,6 +18,7 @@ phases:
       - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
   post_build:
     commands:
+      # Update
       - aws s3 sync ./coverage s3://nef-static
 artifacts:
   type: zip
