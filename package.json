@@ -4,14 +4,17 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
-        "aws-sdk": "^2.211.1"
+        "aws-sdk": "^2.218.1"
     },
     "devDependencies": {
-        "mocha": "5.0.0",
-        "unit.js": "2.0.0",
-        "aws-sdk-mock": "1.7.0"
+        "aws-sdk-mock": "^1.7.0",
+        "mocha": "^5.0.0",
+        "mocha-simple-html-reporter": "^1.1.0",
+        "mochawesome": "^3.0.2",
+        "nyc": "^11.6.0",
+        "unit.js": "^2.0.0"
     },
     "scripts": {
-        "test": "mocha --recursive tests"
+        "test": "nyc --reporter=html mocha --reporter mocha-simple-html-reporter --reporter-options output=./coverage/report.html --recursive tests"
     }
 }
